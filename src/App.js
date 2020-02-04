@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import quizApi from './components/quizApi'
 
 import './App.scss'
+import QuestionBox from './components/QuestionBox'
 
 function App() {
   const [state, setState] = useState({
@@ -29,7 +30,13 @@ function App() {
         </div>
         {state.questionBank.length > 0 &&
           state.questionBank.map(
-            ({ question, answers, correct, questionId }) => <h4>{question}</h4>
+            ({ question, answers, correct, questionId }) => (
+              <QuestionBox
+                question={question}
+                options={answers}
+                key={questionId}
+              />
+            )
           )}
       </div>
     </div>
