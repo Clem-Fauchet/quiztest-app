@@ -8,18 +8,35 @@ import QuestionBox from './components/QuestionBox'
 function App() {
   const [state, setState] = useState({
     questionBank: [],
+    score: 0,
+    responses: 0,
   })
 
-  const getQuestions = () => {
-    quizApi().then((question) => {
+  const computeAnswer = (answer, correctAnswer) => {
+    if (answer === correctAnswer) {
       setState({
-        questionBank: question,
+        ...state,
+        responses: state.responses < 6 ? state.responses + 1 : 6,
+        score: state.score + 1,
       })
-    })
+    } else {
+      setState({
+        ...state,
+        responses: state.responses < 6 ? state.responses + 1 : 6,
+        score: state.score,
+      })
+    }
+
+    console.log(state)
   }
 
   useEffect(() => {
-    getQuestions()
+    quizApi().then((question) => {
+      setState({
+        ...state,
+        questionBank: question,
+      })
+    })
   }, [])
 
   return (
@@ -29,15 +46,19 @@ function App() {
           <h3>Quiz Test</h3>
         </div>
         {state.questionBank.length > 0 &&
+          state.responses < 6 &&
           state.questionBank.map(
             ({ question, answers, correct, questionId }) => (
               <QuestionBox
                 question={question}
                 options={answers}
                 key={questionId}
+                selected={(answer) => computeAnswer(answer, correct)}
               />
             )
           )}
+
+        {state.responses === 6 ? <h2>{state.score}</h2> : null}
       </div>
     </div>
   )
