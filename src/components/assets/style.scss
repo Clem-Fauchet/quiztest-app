@@ -18,71 +18,77 @@
   left: 0px;
   right: 0px;
   margin: auto;
-}
 
-.title {
+
+  .title {
   position: relative;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: #badc58;
   color: rgb(255, 255, 255);
   padding: 20px;
-  font-size: 1.8em;
   border-radius: 5px;
-}
+  text-align: center;
+    h3 {
+    font-size: 2.3em;
+    background-color: #a8c74c;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    }
+  }
 
-.question {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
+  .questionBox {
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin-top: 5px;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: rgb(250, 250, 250);
 
-.questionBox {
-  position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  margin-top: 5px;
-  padding: 15px;
-  box-sizing: border-box;
-  background-color: rgb(250, 250, 250);
-}
+    .question {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
 
-.answerBtn {
-  position: relative;
-  padding: 10px;
-  background-color: rgb(250, 151, 37);
-  display: inline-block;
-  margin: 10px;
-  outline: none;
-  border: none;
-  font-size: 1em;
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-}
+    .answerBtn {
+      position: relative;
+      padding: 10px;
+      background-color: #6ab04c;
+      display: inline-block;
+      margin: 10px;
+      outline: none;
+      border: none;
+      font-size: 1em;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
 
-.score-board {
+  .score-board {
   position: relative;
   height: 700px;
-}
+  .score {
+    position: absolute;
+    width: 1024px;
+    font-size: 3em;
+    top: 250px;
+    text-align: center;
+  }
 
-.score {
-  position: absolute;
-  width: 1024px;
-  font-size: 3em;
-  top: 250px;
-  text-align: center;
-}
-
-.playBtn {
-  position: absolute;
-  font-size: 1.4em;
-  padding: 10px;
-  top: 350px;
-  background-color: rgb(46, 182, 46);
-  color: rgb(255, 255, 255);
-  width: 150px;
-  left: 0px;
-  right: 0px;
-  margin: auto;
-  outline: none;
-  cursor: pointer;
+  .playBtn {
+    position: absolute;
+    font-size: 1.4em;
+    padding: 10px;
+    top: 350px;
+    background-color: rgb(46, 182, 46);
+    color: rgb(255, 255, 255);
+    width: 150px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    outline: none;
+    cursor: pointer;
+  }
+  }
 }
