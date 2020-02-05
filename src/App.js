@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
 import quizApi from './components/quizApi'
+import './components/assets/style.scss'
 
 import './App.scss'
 import QuestionBox from './components/QuestionBox'
+import Results from './components/Results'
 
 function App() {
   const [state, setState] = useState({
@@ -26,8 +28,18 @@ function App() {
         score: state.score,
       })
     }
+    console.log(state.score)
+  }
 
-    console.log(state)
+  const playAgain = () => {
+    quizApi().then((question) => {
+      setState({
+        ...state,
+        questionBank: question,
+        score: 0,
+        responses: 0,
+      })
+    })
   }
 
   useEffect(() => {
@@ -58,7 +70,9 @@ function App() {
             )
           )}
 
-        {state.responses === 6 ? <h2>{state.score}</h2> : null}
+        {state.responses === 6 ? (
+          <Results score={state.score} playAgain={playAgain} />
+        ) : null}
       </div>
     </div>
   )
